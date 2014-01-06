@@ -11,18 +11,6 @@ imp.WorldManager = function( game ) {
     this.backgroundcolor = 0xFFFFFF;
     this.physics = Physics();
     this.physics.pause();
-    
-    var world = this;
-    
-    Physics.util.ticker.subscribe(function( time, dt ){
-
-        world.physics.step( time );
-
-        // only render if not paused
-        if ( !world.physics.isPaused() ){
-            world.physics.render();
-        }
-    });
 
 };
 
@@ -38,13 +26,17 @@ imp.WorldManager.prototype.add = function( item ) {
 };
 
 /**
- * Start the physics engine.
+ * Step through the simulation.
  * 
- * @method start
+ * @method step
  */
-imp.WorldManager.prototype.start = function(  ) {
+imp.WorldManager.prototype.step = function( time ) {
 
-    Physics.util.ticker.start();
+    if( this.physics.isPaused() )
+        return;
+    
+    this.physics.step( time );
+    this.physics.render();
 
 };
 

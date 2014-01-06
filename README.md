@@ -14,9 +14,6 @@ game.on( 'start', function( event, game ) {
 
 } );
 
-// Do stuff when initialising the physical world.
-game.on( 'init', function( event, game ) {} );
-
 // Do stuff in our update loop.
 game.on( 'update', function( event, game ) {} );
 

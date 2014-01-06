@@ -75,7 +75,7 @@ imp.Game.prototype.start = function(  ) {
     } );
     
     this.world.add( this.renderer );
-    this.world.start();
+    imp.startMainLoop();
 
 };
 
@@ -110,6 +110,17 @@ imp.Game.prototype.renderView = function( view ) {
 imp.Game.prototype.init = function(  ) {
 
     this.emit( 'init', { name: 'init' } );
+
+};
+
+/**
+ * Step through the physics simulation.
+ * 
+ * @method step
+ */
+imp.Game.prototype.step = function( time ) {
+
+    this.world.step( time );
 
 };
 
