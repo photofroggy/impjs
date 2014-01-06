@@ -19,6 +19,7 @@ imp.Game = function( name, width, height, container ) {
     
     this.stage = null;
     this.view = null;
+    this.renderer = null;
     
     // TODO: sub objects
     //this.asset = imp.AssetManager( this );
@@ -27,7 +28,7 @@ imp.Game = function( name, width, height, container ) {
     //this.input = imp.InputManager( this );
     //this.tile = imp.TileManager( this );
     
-    //this.world = imp.WorldManager( this );
+    this.world = new imp.WorldManager( this );
 
 };
 
@@ -64,7 +65,17 @@ imp.Game.prototype.emit = function( event, data ) {
  */
 imp.Game.prototype.start = function(  ) {
 
-
+    this.emit( 'start', { name: 'start' } );
+    
+    this.renderer = imp.createRenderer( {
+        width: this.width,
+        height: this.height,
+        backgroundcolor: this.world.backgroundcolor,
+        game: this
+    } );
+    
+    this.world.add( this.renderer );
+    this.world.start();
 
 };
 
@@ -87,7 +98,7 @@ imp.Game.prototype.setStage = function( stage ) {
 imp.Game.prototype.renderView = function( view ) {
 
     this.view = view;
-    // TODO: Add the view to the page!
+    this.container.appendChild( this.view );
 
 };
 

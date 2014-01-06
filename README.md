@@ -7,7 +7,14 @@ Example:
 ```javascript
 var game = imp.createGame( 'example', 400, 300, document.body );
 
-// Do stuff when initialising the game.
+// Do stuff on game start.
+game.on( 'start', function( event, game ) {
+
+    game.world.backgroundcolor = 0xEEFFFF;
+
+} );
+
+// Do stuff when initialising the physical world.
 game.on( 'init', function( event, game ) {} );
 
 // Do stuff in our update loop.

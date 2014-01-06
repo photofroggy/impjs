@@ -15,7 +15,8 @@
                 "src/events.js",
                 "src/base.js",
                 "src/game.js",
-                "src/renderer.js"
+                "src/renderer.js",
+                "src/worldmanager.js"
             ]
         }
     ],
