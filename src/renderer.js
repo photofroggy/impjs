@@ -41,6 +41,7 @@ imp.Renderer.prototype.init = function( options ) {
     this.pixi = PIXI.autoDetectRenderer( options.width, options.height );
     this.game.setStage( this.stage );
     this.game.renderView( this.pixi.view );
+    this.game.init(  );
 
 };
 
@@ -75,8 +76,13 @@ imp.Renderer.prototype.drawScene = function( bodies ) {
 
     // TODO: Render the changes in positions
     this.game.update( bodies );
-    this.game.render(  );
-    this.pixi.render( this.stage );
+    
+    var r = this;
+    
+    requestAnimFrame( function(  ) {
+        r.game.render(  );
+        r.pixi.render( r.stage );
+    } );
 
 };
 

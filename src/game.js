@@ -92,13 +92,25 @@ imp.Game.prototype.renderView = function( view ) {
 };
 
 /**
+ * Initialised PhysicsJS.
+ * 
+ * @method init
+ */
+imp.Game.prototype.init = function(  ) {
+
+    this.emit( 'init', { name: 'init' } );
+
+};
+
+/**
  * Update loop.
  * 
  * @method update
  */
 imp.Game.prototype.update = function( bodies ) {
 
-
+    // Update objects in managers and stuff...
+    this.emit( 'update', { name: 'update', bodies: bodies } );
 
 };
 
@@ -109,7 +121,7 @@ imp.Game.prototype.update = function( bodies ) {
  */
 imp.Game.prototype.render = function(  ) {
 
-
+    this.emit( 'render', { name: 'render' } );
 
 };
 
