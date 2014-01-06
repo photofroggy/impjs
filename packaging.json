@@ -1,0 +1,23 @@
+{
+    "clean": "./dist",
+    "yuic": [
+        "-jar",
+        "/usr/local/bin/yuicompressor-2.4.7/build/yuicompressor-2.4.7.jar",
+        "--line-break",
+        "1000"
+    ],
+    "packs": [
+        {
+            "dest": "dist/imp.js",
+            "mini": "dist/imp.min.js",
+            "files": [
+                "src/lib.js",
+                "src/events.js",
+                "src/base.js",
+                "src/game.js",
+                "src/renderer.js"
+            ]
+        }
+    ],
+    "post": ["./mvlh"]
+}

@@ -1,0 +1,4 @@
+#!/bin/sh
+echo ">>    Copying files..."
+
+cp -R dist/ ~/Web/static/js
