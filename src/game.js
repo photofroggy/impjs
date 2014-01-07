@@ -65,7 +65,7 @@ imp.Game.prototype.emit = function( event, data ) {
  */
 imp.Game.prototype.start = function(  ) {
 
-    this.emit( 'start', { name: 'start' } );
+    this.emit( 'preload', { name: 'preload' } );
     
     this.renderer = imp.createRenderer( {
         width: this.width,
@@ -109,7 +109,7 @@ imp.Game.prototype.renderView = function( view ) {
  */
 imp.Game.prototype.init = function(  ) {
 
-    this.emit( 'init', { name: 'init' } );
+    this.emit( 'load', { name: 'load' } );
 
 };
 
